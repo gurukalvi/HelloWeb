@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Admission</title>
+  <style>
+    #parent {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        display: block; /* fix for opera and ff */
+    }
+
+    #child {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: blue;
+        top: 0;
+        left: 100%; /* this line of code will sort things out for you :) */
+    }
+  </style>
+  <script>
+    function checkValues(){
+        alert("The form is submitted");
+    }
+  </script>
+</head>
+<body>
+<!-- #rrggbb rr 0-9 a b c d e f -->
+<table style="height:100%;width:100%"  align="center" bgcolor="#acdce6" >
+  <tr style="height:200px" >
+    <td>
+      <a href="MySchool.html"> Logo </a>
+    </td>
+    <td colspan="4" >
+      <h1 align="center" style="font-size:50px;" >School Name</h1>
+    </td>
+
+  </tr>
+  <tr style="height:50px">
+    <td>
+
+    </td>
+    <td colspan="4" >
+
+      <table width="80%" align="right" >
+        <tr>
+          <td>
+            <a href="principal.html"> Principal </a>
+          </td>
+          <td>
+            Staff
+          </td>
+          <td>
+            Department
+          </td>
+          <td>
+            <a href="admission.html"> Admission </a>
+          </td>
+          <td>
+            Login
+          </td>
+        </tr>
+      </table>
+    </td>
+
+  </tr>
+  <tr style="height:500px" >
+    <td>
+
+    </td>
+    <td colspan="4"  >
+      <div id = "parent" align="center" >
+      <form name="admission" action="confirm.html">
+        <table width="50%" border="2px;2px;" >
+          <tr style="height:50px">
+            <td colspan="2" align="center" >
+             <h4> Enter Student Details </h4>
+            </td>
+          </tr>
+          <tr style="height:50px" >
+            <td>
+              First Name:
+            </td>
+            <td>
+              <input type="text" id="studentFirstName" name="studentName" >
+            </td>
+          </tr>
+          <tr style="height:50px">
+            <td>
+              Father Name:
+            </td>
+            <td>
+              <input type="text" id="fatherName" name="fatherName" >
+            </td>
+          </tr>
+          <tr style="height:50px">
+            <td>
+              Email Name:
+            </td>
+            <td>
+              <input type="email" name="studentEmail" >
+            </td>
+          </tr>
+          <tr style="height:50px">
+            <td>
+              Degree:
+            </td>
+            <td>
+              <select id="degree" name="degree">
+                <option value="B.Sc. - Physics">B.Sc. - Physics</option>
+                <option value="B.Sc. - Maths">B.Sc. - Maths</option>
+                <option value="B.E - Computer">B.E - Computer</option>
+                <option value="B.E - ECE">B.E - Elect and Communication</option>
+                <option value="B.E - EEE">B.E - EEE</option>
+              </select>
+            </td>
+          </tr>
+          <tr style="height:50px">
+            <td>
+              Gender:
+            </td>
+            <td>
+              <input type="radio" id="male" name="gender" value="Male"> Male
+              <input type="radio" id="female" name="gender" value="Female"> Female
+              <input type="radio" id="others" name="gender" value="Others"> Others
+            </td>
+          </tr>
+          <tr style="height:50px">
+            <td>Mobile Number</td>
+            <td>
+              <input type="text" name="MobileNumber" maxlength="10" placeholder="7842xxxxxx"/>
+              (10 Digits Allowed)
+            </td>
+          </tr>
+          <tr style="height:50px">
+            <td>
+              Test Type:
+            </td>
+            <td>
+              <select id="test type" name="test type">
+                <option value="First Revision Test">First Revision Test</option>
+                <option value="Quarterly Test">Quarterly Test</option>
+                <option value="Second Revision Test">Second Revision Test</option>
+                <option value="Half-yearly Test">Half-yearly Test</option>
+                <option value="Third Revision Test">Third Revision Test</option>
+                <option value="Full-Yearly Test">Full-Yearly Test</option>
+              </select>
+            </td>
+          </tr>
+          <tr style="height:50px">
+            <td>
+              Date of Birth:
+            </td>
+            <td>
+              <input type="date" name="dob" >
+            </td>
+          </tr>
+          <tr style="height:50px">
+            <td>
+              Total Working Days:
+            </td>
+            <td>
+              <input type="text" id="Total Working Days" name="Total Working Days" >
+            </td>
+          </tr>
+          <tr style="height:50px">
+            <td>
+              Present Days:
+            </td>
+            <td>
+              <input type="text" id="Present Days" name="Present Days" >
+            </td>
+          </tr>
+          
+          <tr style="height:50px">
+            <td>
+              <button name="submit" type="submit" onclick="checkValues()" >Submit</button>
+            </td>
+            <td>
+              <button name="Reset" type="reset" >Reset</button>
+            </td>
+          </tr>
+
+        </table>
+      </form>
+      </div>
+    </td>
+
+  </tr>
+  <tr style="height:150px">
+    <td>
+      College Ranks
+    </td>
+    <td>
+      University Details
+    </td>
+    <td>
+      Cultural Photos
+    </td>
+    <td>
+      National Events
+    </td>
+    <td>
+      Sports
+    </td>
+  </tr>
+
+</table>
+
+
+</body>
+</html>
