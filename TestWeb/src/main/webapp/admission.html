@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
   <meta charset="UTF-8">
   <title>Student Admission</title>
@@ -35,7 +35,7 @@
       <a href="MySchool.html"> Logo </a>
     </td>
     <td colspan="4" >
-      <h1 align="center" style="font-size:50px;" >School Name</h1>
+      <h1 align="center" style="font-size:50px;" >Guru Kalvi</h1>
     </td>
 
   </tr>
@@ -60,7 +60,7 @@
             <a href="admission.html"> Admission </a>
           </td>
           <td>
-            <a href="Login.html">  Login  </a>
+            Login
           </td>
         </tr>
       </table>
@@ -72,20 +72,26 @@
 
     </td>
     <td colspan="4"  >
-      <div id = "parent" align="center" >
+      <div id = "parent" align="left" >
       <form name="admission" action="confirm.html">
         <table width="50%" border="2px;2px;" >
           <tr style="height:50px">
-            <td colspan="2" align="center" >
+            <td colspan="2" align="left" >
              <h4> Enter Student Details </h4>
             </td>
           </tr>
-          <tr style="height:50px" >
+          <tr style="height:50px">
             <td>
-              First Name:
+              Student Name:
             </td>
             <td>
-              <input type="text" id="studentFirstName" name="studentName" >
+              <input type="text" id="studentName" name="studentName" >
+              <input type="text" id="initial" name="initial" placeholder="Initial">
+              <div class="upload-container">
+                <input type="file" id="photo" accept="image/*" onchange="previewPhoto()">
+              <id="preview">
+                <img id="previewImg" src="#" alt="Photo Preview">
+              </div>
             </td>
           </tr>
           <tr style="height:50px">
@@ -94,6 +100,24 @@
             </td>
             <td>
               <input type="text" id="fatherName" name="fatherName" >
+            </td>
+          </tr>
+
+          <tr style="height:50px">
+            <td>
+              Mother Name:
+            </td>
+            <td>
+              <input type="text" id="motherName" name="motherName" >
+            </td>
+          </tr>
+          <tr style="height:50px">
+
+            <td>
+              Phone Number
+            </td>
+            <td>
+              <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Country Code +91" required>
             </td>
           </tr>
           <tr style="height:50px">
@@ -107,15 +131,33 @@
           </tr>
           <tr style="height:50px">
             <td>
+              Address:
+            </td>
+            <td>
+              <textarea id="address" name="address" placeholder="Door no with Pincode" rows="4" cols="50" required></textarea>
+            </td>
+          </tr>
+          <tr style="height:50px">
+            <td>
               Degree:
             </td>
             <td>
               <select id="degree" name="degree">
+                <option value="" disabled selected hidden>Select Department</option>
+                <option value="B.A - Tamil">B.A - Tamil</option>
+                <option value="B.A-English">B.A-English</option>
                 <option value="B.Sc. - Physics">B.Sc. - Physics</option>
                 <option value="B.Sc. - Maths">B.Sc. - Maths</option>
-                <option value="B.E - Computer">B.E - Computer</option>
-                <option value="B.E - ECE">B.E - Elect and Communication</option>
-                <option value="B.E - EEE">B.E - EEE</option>
+                <option value="B.Sc. - Botany">B.Sc. - Botany</option>
+                <option value="B.Sc. - Zoology">B.Sc. - Zoology</option>
+                <option value="B.Sc. - Chemistry">B.Sc. - Chemistry</option>
+                <option value="B.Sc - Computer Science">B.Sc - Computer Science</option>
+                <option value="BCA -Bachelor of Computer Applications">BCA -Bachelor of Computer Applications</option>
+                <option value="B.Sc -Information Technology">B.Sc -Information Technology</option>
+                <option value="BBA-Bachelor of Business Administration">BBA-Bachelor of Business Administration</option>
+                <option value="BBA(CA) - Bachelor of Business Administration in Computer Applications">BBA(CA) - Bachelor of Business Administration in Computer Applications</option>
+                <option value="B.Com">B.Com</option>
+                <option value="B.Com(CA)">B.Com(CA)</option>
               </select>
             </td>
           </tr>
@@ -126,56 +168,114 @@
             <td>
               <input type="radio" id="male" name="gender" value="Male"> Male
               <input type="radio" id="female" name="gender" value="Female"> Female
-              <input type="radio" id="others" name="gender" value="Others"> Others
+              <input type="radio" id="other" name="gender" value="Other"> Other
             </td>
           </tr>
-          <tr style="height:50px">
-            <td>Mobile Number</td>
-            <td>
-              <input type="text" name="MobileNumber" maxlength="10" placeholder="7842xxxxxx"/>
-              (10 Digits Allowed)
-            </td>
-          </tr>
-          <tr style="height:50px">
-            <td>
-              Test Type:
-            </td>
-            <td>
-              <select id="test type" name="test type">
-                <option value="First Revision Test">First Revision Test</option>
-                <option value="Quarterly Test">Quarterly Test</option>
-                <option value="Second Revision Test">Second Revision Test</option>
-                <option value="Half-yearly Test">Half-yearly Test</option>
-                <option value="Third Revision Test">Third Revision Test</option>
-                <option value="Full-Yearly Test">Full-Yearly Test</option>
-              </select>
-            </td>
-          </tr>
+
           <tr style="height:50px">
             <td>
               Date of Birth:
             </td>
             <td>
-              <input type="date" name="dob" >
+              <input type="date" id="dob" name="dob" onchange="calculateAge()">
             </td>
           </tr>
           <tr style="height:50px">
             <td>
-              Total Working Days:
+              Age:
             </td>
             <td>
-              <input type="text" id="Total Working Days" name="Total Working Days" >
+              <input type="number" id="age" name="age" readonly>
             </td>
           </tr>
-          <tr style="height:50px">
-            <td>
-              Present Days:
-            </td>
-            <td>
-              <input type="text" id="Present Days" name="Present Days" >
-            </td>
-          </tr>
-          
+
+          <table
+            <tr>
+              <th>S.No</th>
+              <th>Subject Name</th>
+              <th>Internal Mark</th>
+              <th>External mark</th>
+              <th>Total Marks</th>
+            </tr>
+            <tr>
+              <td><input type="text" class="column-1"></td>
+              <td><input type="text" class="column-2"></td>
+              <td><input type="text" class="column-3"></td>
+              <td><input type="text" class="column-4"></td>
+              <td><input type="text" class="column-5" readonly></td>
+            </tr>
+            <tr>
+              <td><input type="text" class="column-1"></td>
+              <td><input type="text" class="column-2"></td>
+              <td><input type="text" class="column-3"></td>
+              <td><input type="text" class="column-4"></td>
+              <td><input type="text" class="column-5" readonly></td>
+            </tr>
+            <tr>
+              <td><input type="text" class="column-1"></td>
+              <td><input type="text" class="column-2"></td>
+              <td><input type="text" class="column-3"></td>
+              <td><input type="text" class="column-4"></td>
+              <td><input type="text" class="column-5" readonly></td>
+            </tr>
+            <tr>
+              <td><input type="text" class="column-1"></td>
+              <td><input type="text" class="column-2"></td>
+              <td><input type="text" class="column-3"></td>
+              <td><input type="text" class="column-4"></td>
+              <td><input type="text" class="column-5" readonly></td>
+            </tr>
+            <tr>
+              <td><input type="text" class="column-1"></td>
+              <td><input type="text" class="column-2"></td>
+              <td><input type="text" class="column-3"></td>
+              <td><input type="text" class="column-4"></td>
+              <td><input type="text" class="column-5" readonly></td>
+            </tr>
+            <tr>
+              <td><input type="text" class="column-1"></td>
+              <td><input type="text" class="column-2"></td>
+              <td><input type="text" class="column-3"></td>
+              <td><input type="text" class="column-4"></td>
+              <td><input type="text" class="column-5" readonly></td>
+            </tr>
+          <style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+          <script>
+  const rows = document.querySelectorAll('tr:not(:first-child)');
+
+  rows.forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    const column3Input = inputs[2];
+    const column4Input = inputs[3];
+    const column5Input = inputs[4];
+
+    column3Input.addEventListener('input', updateColumn5);
+    column4Input.addEventListener('input', updateColumn5);
+
+    function updateColumn5() {
+      const value3 = parseFloat(column3Input.value) || 0;
+      const value4 = parseFloat(column4Input.value) || 0;
+      column5Input.value = value3 + value4;
+    }
+  });
+</script>
+        </table>
           <tr style="height:50px">
             <td>
               <button name="submit" type="submit" onclick="checkValues()" >Submit</button>
@@ -189,7 +289,6 @@
       </form>
       </div>
     </td>
-
   </tr>
   <tr style="height:150px">
     <td>
@@ -208,9 +307,6 @@
       Sports
     </td>
   </tr>
-
 </table>
-
-
 </body>
 </html>
