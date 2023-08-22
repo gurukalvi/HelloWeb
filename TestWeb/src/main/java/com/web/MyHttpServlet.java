@@ -15,6 +15,7 @@ import com.web.jdbc.LoginDataAccessObject;
 /**
  * Servlet implementation class MyHttpServlet
  */
+@WebServlet("/MyHttpServlet")
 public class MyHttpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      

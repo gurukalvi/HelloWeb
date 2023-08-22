@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class LoginDataAccessObject {
 	
 	public boolean checkLogin(String username, String password) {
-		String sqlQuery = "SELECT * FROM SchoolDB.login l where l.username = \'"+username+"\' and l.password=\'"+password+"\'";
+		String sqlQuery = "SELECT * FROM SchoolDB.login l where l.username=\""+username+"\" and l.password=\""+password+"\"";
 		//DBConnection dbObject = new DBConnection();
-		System.out.println(sqlQuery);
+		System.out.println("the sql query ="+sqlQuery);
 		boolean loginValid= false;
 		try {
 			Connection conn= DBConnection.getConnection();
