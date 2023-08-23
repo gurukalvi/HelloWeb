@@ -10,9 +10,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import com.web.jdbc.LoginDataAccessObject;
+
 /**
  * Servlet implementation class MyHttpServlet
  */
+@WebServlet("/MyHttpServlet")
 public class MyHttpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      
@@ -50,27 +53,32 @@ public class MyHttpServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		LoginDataAccessObject logindbObj=new LoginDataAccessObject();
 		userCount++;
-		//name = manju
-				String username = request.getParameter("username");
-				String password = request.getParameter("password");
-				
-				System.out.println("inside the doPost method");
-				PrintWriter write=response.getWriter();
-				response.setContentType("text/html");
-				
-				//sendRedirect
-				if(username.length()<=3 && password.length()<=3) {  //jdbc data base check
-					response.sendRedirect("Login.html");
-				}else {
-					//write.println("<h2>Welcome "+username+"  to HttpServlets doPost You are visitor Number: "+userCount+"</h1>");
-					//forward
-					RequestDispatcher dispatcher=null;
-					dispatcher = request.getRequestDispatcher("admission.html");
-					dispatcher.forward(request,response);
-				}
-				
+		// name = manju
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+
+		System.out.println("inside the doPost method");
+		PrintWriter write = response.getWriter();
+		response.setContentType("text/html");
+
+		boolean isLoginValid = logindbObj.checkLogin(username, password);
+		
+		// sendRedirect
+		if (isLoginValid) { // jdbc data base check
+			System.out.println("valid username and password");
+			RequestDispatcher dispatcher = null;
+			dispatcher = request.getRequestDispatcher("admission.html");
+			dispatcher.forward(request, response);
+			
+		} else {
+			System.out.println("invalid username password");
+			response.sendRedirect("Login.html");
+		}
+
 	}
 
 }
