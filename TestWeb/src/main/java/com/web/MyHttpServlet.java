@@ -41,7 +41,7 @@ public class MyHttpServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		userCount++;
 		//name = manju
-		String username = request.getParameter("username");
+		String username = request.getParameter("user_name");
 		String password = request.getParameter("password");
 		
 		System.out.println("inside the doGet method");

@@ -1,312 +1,289 @@
-<!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Student Admission</title>
-  <style>
-    #parent {
-        position: relative;
-        width: 100%;
-        height: 100%;
-
-        display: block; /* fix for opera and ff */
-    }
-
-    #child {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        background: blue;
-        top: 0;
-        left: 100%; /* this line of code will sort things out for you :) */
-    }
-  </style>
-  <script>
-    function checkValues(){
-        alert("The form is submitted");
-    }
-  </script>
-</head>
-<body>
-<!-- #rrggbb rr 0-9 a b c d e f -->
-<table style="height:100%;width:100%"  align="center" bgcolor="#acdce6" >
-  <tr style="height:200px" >
-    <td>
-      <a href="MySchool.html"> Logo </a>
-    </td>
-    <td colspan="4" >
-      <h1 align="center" style="font-size:50px;" >Guru Kalvi</h1>
-    </td>
-
-  </tr>
-  <tr style="height:50px">
-    <td>
-
-    </td>
-    <td colspan="4" >
-
-      <table width="80%" align="right" >
-        <tr>
-          <td>
-            <a href="principal.html"> Principal </a>
-          </td>
-          <td>
-            Staff
-          </td>
-          <td>
-            Department
-          </td>
-          <td>
-            <a href="admission.html"> Admission </a>
-          </td>
-          <td>
-            Login
-          </td>
-        </tr>
-      </table>
-    </td>
-
-  </tr>
-  <tr style="height:500px" >
-    <td>
-
-    </td>
-    <td colspan="4"  >
-      <div id = "parent" align="left" >
-      <form name="admission" action="confirm.html">
-        <table width="50%" border="2px;2px;" >
-          <tr style="height:50px">
-            <td colspan="2" align="left" >
-             <h4> Enter Student Details </h4>
-            </td>
-          </tr>
-          <tr style="height:50px">
-            <td>
-              Student Name:
-            </td>
-            <td>
-              <input type="text" id="studentName" name="studentName" >
-              <input type="text" id="initial" name="initial" placeholder="Initial">
-              <div class="upload-container">
-                <input type="file" id="photo" accept="image/*" onchange="previewPhoto()">
-              <id="preview">
-                <img id="previewImg" src="#" alt="Photo Preview">
-              </div>
-            </td>
-          </tr>
-          <tr style="height:50px">
-            <td>
-              Father Name:
-            </td>
-            <td>
-              <input type="text" id="fatherName" name="fatherName" >
-            </td>
-          </tr>
-
-          <tr style="height:50px">
-            <td>
-              Mother Name:
-            </td>
-            <td>
-              <input type="text" id="motherName" name="motherName" >
-            </td>
-          </tr>
-          <tr style="height:50px">
-
-            <td>
-              Phone Number
-            </td>
-            <td>
-              <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Country Code +91" required>
-            </td>
-          </tr>
-          <tr style="height:50px">
-            <td>
-              Email Name:
-            </td>
-            <td>
-				<select></select>
-              <input type="email" name="studentEmail" >
-            </td>
-          </tr>
-          <tr style="height:50px">
-            <td>
-              Address:
-            </td>
-            <td>
-              <textarea id="address" name="address" placeholder="Door no with Pincode" rows="4" cols="50" required></textarea>
-            </td>
-          </tr>
-          <tr style="height:50px">
-            <td>
-              Degree:
-            </td>
-            <td>
-              <select id="degree" name="degree">
-                <option value="" disabled selected hidden>Select Department</option>
-                <option value="B.A - Tamil">B.A - Tamil</option>
-                <option value="B.A-English">B.A-English</option>
-                <option value="B.Sc. - Physics">B.Sc. - Physics</option>
-                <option value="B.Sc. - Maths">B.Sc. - Maths</option>
-                <option value="B.Sc. - Botany">B.Sc. - Botany</option>
-                <option value="B.Sc. - Zoology">B.Sc. - Zoology</option>
-                <option value="B.Sc. - Chemistry">B.Sc. - Chemistry</option>
-                <option value="B.Sc - Computer Science">B.Sc - Computer Science</option>
-                <option value="BCA -Bachelor of Computer Applications">BCA -Bachelor of Computer Applications</option>
-                <option value="B.Sc -Information Technology">B.Sc -Information Technology</option>
-                <option value="BBA-Bachelor of Business Administration">BBA-Bachelor of Business Administration</option>
-                <option value="BBA(CA) - Bachelor of Business Administration in Computer Applications">BBA(CA) - Bachelor of Business Administration in Computer Applications</option>
-                <option value="B.Com">B.Com</option>
-                <option value="B.Com(CA)">B.Com(CA)</option>
-              </select>
-            </td>
-          </tr>
-          <tr style="height:50px">
-            <td>
-              Gender:
-            </td>
-            <td>
-              <input type="radio" id="male" name="gender" value="Male"> Male
-              <input type="radio" id="female" name="gender" value="Female"> Female
-              <input type="radio" id="other" name="gender" value="Other"> Other
-            </td>
-          </tr>
-
-          <tr style="height:50px">
-            <td>
-              Date of Birth:
-            </td>
-            <td>
-              <input type="date" id="dob" name="dob" onchange="calculateAge()">
-            </td>
-          </tr>
-          <tr style="height:50px">
-            <td>
-              Age:
-            </td>
-            <td>
-              <input type="number" id="age" name="age" readonly>
-            </td>
-          </tr>
-
-          <table
-            <tr>
-              <th>S.No</th>
-              <th>Subject Name</th>
-              <th>Internal Mark</th>
-              <th>External mark</th>
-              <th>Total Marks</th>
-            </tr>
-            <tr>
-              <td><input type="text" class="column-1"></td>
-              <td><input type="text" class="column-2"></td>
-              <td><input type="text" class="column-3"></td>
-              <td><input type="text" class="column-4"></td>
-              <td><input type="text" class="column-5" readonly></td>
-            </tr>
-            <tr>
-              <td><input type="text" class="column-1"></td>
-              <td><input type="text" class="column-2"></td>
-              <td><input type="text" class="column-3"></td>
-              <td><input type="text" class="column-4"></td>
-              <td><input type="text" class="column-5" readonly></td>
-            </tr>
-            <tr>
-              <td><input type="text" class="column-1"></td>
-              <td><input type="text" class="column-2"></td>
-              <td><input type="text" class="column-3"></td>
-              <td><input type="text" class="column-4"></td>
-              <td><input type="text" class="column-5" readonly></td>
-            </tr>
-            <tr>
-              <td><input type="text" class="column-1"></td>
-              <td><input type="text" class="column-2"></td>
-              <td><input type="text" class="column-3"></td>
-              <td><input type="text" class="column-4"></td>
-              <td><input type="text" class="column-5" readonly></td>
-            </tr>
-            <tr>
-              <td><input type="text" class="column-1"></td>
-              <td><input type="text" class="column-2"></td>
-              <td><input type="text" class="column-3"></td>
-              <td><input type="text" class="column-4"></td>
-              <td><input type="text" class="column-5" readonly></td>
-            </tr>
-            <tr>
-              <td><input type="text" class="column-1"></td>
-              <td><input type="text" class="column-2"></td>
-              <td><input type="text" class="column-3"></td>
-              <td><input type="text" class="column-4"></td>
-              <td><input type="text" class="column-5" readonly></td>
-            </tr>
-          <style>
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    border: 1px solid black;
+    <title>Student Registration Form</title>
+<style>
+h2 {text-align: center;}
+  h2{
+  font-family:sans-serif;  font-size:24px;
+  font-style:normal;
+  fort-weight:bold;
+  color:blue;
+  text-align:centre;
+  text-decoration:underline
   }
+  table{
+font-family:verdana;
+color:white;
+ font-size:16px;
+  font-style:normal;
+  fort-weight:bold;
+  background:linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+  border-collapse: collapse;
+  broder:4px solid #000000;
+  broder-style:dashed;
 
-  th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
   }
-
-  th {
-    background-color: #f2f2f2;
+  table.inner{
+  border:10px
+  }
+  input[type=text], input[type=email],input[type=number]{
+  width:50%;
+  padding:6px 12px;
+  margin:5px 0;
+  box-sizing:border-box;
+  }
+  input[type=submit],input[type=reset]{
+   width:15%;
+  padding:8px 12px;
+  margin:5px 0;
+  box-sizing:border-box;
   }
 </style>
-          <script>
-  const rows = document.querySelectorAll('tr:not(:first-child)');
+</head>
+<body>
+<h2>Student Registration Form</h2>
 
-  rows.forEach(row => {
-    const inputs = row.querySelectorAll('input');
-    const column3Input = inputs[2];
-    const column4Input = inputs[3];
-    const column5Input = inputs[4];
-
-    column3Input.addEventListener('input', updateColumn5);
-    column4Input.addEventListener('input', updateColumn5);
-
-    function updateColumn5() {
-      const value3 = parseFloat(column3Input.value) || 0;
-      const value4 = parseFloat(column4Input.value) || 0;
-      column5Input.value = value3 + value4;
-    }
-  });
-</script>
-        </table>
-          <tr style="height:50px">
-            <td>
-              <button name="submit" type="submit" onclick="checkValues()" >Submit</button>
+    <table>
+        <!------------First Name
+        -------------------------->
+        <tr>
+        <td>First Name</td>
+        <td><input type="text" name="FirstName"maxlength="50" placeholder="Name.." />
+        (maxlength="50" characters Allowed)
+        </td>
+        </tr>
+        <!-----------------------Last Name
+        --------------------------------->
+        <tr>
+            <td>Last Name</td>
+            <td><input type="text" name="LastName"maxlength="50" placeholder="Last name....." />
+                (maxlength="50" characters Allowed)
             </td>
-            <td>
-              <button name="Reset" type="reset" >Reset</button>
+        </tr>
+        <!-----------------------Email ID
+     --------------------------------->
+        <tr>
+            <td>Email ID</td>
+            <td><input type="email" name="EmailID"maxlength="100" placeholder="Ininyannn@gmail.com" />
+                (maxlength="50" characters Allowed)
             </td>
-          </tr>
-
-        </table>
-      </form>
-      </div>
-    </td>
-  </tr>
-  <tr style="height:150px">
-    <td>
-      College Ranks
-    </td>
-    <td>
-      University Details
-    </td>
-    <td>
-      Cultural Photos
-    </td>
-    <td>
-      National Events
-    </td>
-    <td>
-      Sports
-    </td>
-  </tr>
-</table>
+        </tr>
+        <!-----------------------Mobile Number
+   --------------------------------->
+        <tr>
+            <td>Mobile Number</td>
+            <td><input type="text" name="Mobile Number"maxlength="10" placeholder="789XXaXXXXX" />
+                (10 Digits Allowed)
+            </td>
+        </tr>
+        <!-----------------------Gender
+   --------------------------------->
+        <tr>
+            <td>Gender</td>
+        <td>
+        <input type="radio" name="Gender"value="Male"/> Male
+            <input type="radio" name="Gender"value="Female"/> Female
+            <input type="radio" name="Gender"value="Others"/> Others
+        </td>
+        </tr>
+        <!-----------------------Date Of Birth
+ --------------------------------->
+        <tr>
+            <td>Date of Birth(DOB)</td>
+        <td>
+        <select name="BirthDay" id="Birthday_Day">
+            <option value="-1">Day:</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            </select>
+                <select name="BirthDayMonth"id="Birthday_Month">
+                    <option value="-1">Month:</option>
+                    <option value="January">Jan(1)</option>
+                    <option value="February">Feb(2)</option>
+                    <option value="March">Mar(3)</option>
+                    <option value="April">Apr(4)</option>
+                    <option value="May">May(5)</option>
+                    <option value="June">Jun(6)</option>
+                    <option value="July">Jul(7)</option>
+                    <option value="August">Aug(8)</option>
+                    <option value="September">Sep(9)</option>
+                    <option value="October">Oct(10)</option>
+                    <option value="November">Nov(1)</option>
+                    <option value="December">Dec(1)</option>
+</select>
+  <select name="Birthday Year"id="Birthday_Year">
+      <option value="-1">Year:</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+      <option value="2014">2014</option>
+      <option value="2013">2013</option>
+      <option value="2012">2012</option>
+      <option value="2011">2011</option>
+      <option value="2010">2010</option>
+      <option value="2009">2009</option>
+      <option value="2008">2008</option>
+      <option value="2007">2007</option>
+      <option value="2006">2006</option>
+      <option value="2005">2005</option>
+      <option value="2004">2004</option>
+      <option value="2003">2003</option>
+      <option value="2002">2002</option>
+      <option value="2001">2001</option>
+      <option value="2000">2000</option>
+      <option value="1999">1999</option>
+      <option value="1998">1998</option>
+      <option value="1997">1997</option>
+      <option value="1996">1996</option>
+      <option value="1995">1995</option>
+      <option value="1994">1994</option>
+      <option value="1993">1993</option>
+      <option value="1992">1992</option>
+      <option value="1991">1991</option>
+      <option value="1990">1990</option>
+      <option value="1989">1989</option>
+      <option value="1988">1988</option>
+      <option value="1987">1987</option>
+      <option value="1986">1986</option>
+      <option value="1985">1985</option>
+      <option value="1984">1984</option>
+      <option value="1983">1983</option>
+      <option value="1982">1982</option>
+      <option value="1981">1981</option>
+      <option value="1980">1980</option>
+  </select>
+        </td>
+        </tr>
+        <!-----------------------Address
+--------------------------------->
+<tr>
+    <td>Address<br /><br /></td>
+        </tr>
+        <!-----------------------City
+    --------------------------------->
+<tr>
+        <td>City</td>
+        <td><input type="text" name="City" maxlength="50" placeholder="Place..."/>
+(Max 50 Characters Allowed)
+        </td>
+</tr>
+        <!----------------------Pin Code
+ --------------------------------->
+        <tr>
+            <td>Pin Code</td>
+            <td><input type="Number" name="PinCode" maxlength="6" placeholder="131322"/>
+                (Max 6 Characters Allowed)
+            </td>
+        </tr>
+        <!-----------------------State
+ --------------------------------->
+        <tr>
+            <td>State</td>
+            <td><input type="text" name="State" maxlength="50" placeholder="State..."/>
+                (Max 50 Characters Allowed)
+            </td>
+        </tr>
+        <!-----------------------Country
+ --------------------------------->
+        <tr>
+            <td>Country</td>
+            <td><input type="text" name="Country" placeholder="Country..."/>
+            </td>
+        </tr>
+        <!-----------------------Hobbies
+      --------------------------------->
+        <tr>
+        <td>Hobbies<br /><br /><br /></td>
+        <td>
+        <input type="checkbox" name="HobbyDrawing" value="Drawing"/>Drawing
+            <input type="checkbox" name="HobbySinging" value="Singing"/>Singing
+            <input type="checkbox" name="HobbyDancing" value="Dancing"/>Dancing
+            <input type="checkbox" name="HobbyCooking" value="Cooking"/>Cooking
+            <input type="checkbox" name="HobbyPlaying" value="Playing"/>Playing
+            <input type="checkbox" name="HobbyWatching Tv" value="Watching Tv"/>Watching Tv
+            <input type="checkbox" name="HobbyReading" value="Reading"/>Reading
+            <input type="checkbox" name="HobbyOthers" value="Others"/>Others
+        <input type="Text" name="Other Hobby"maxlength="50"placeholder="EX-Teaching"/>
+        (Max 50 Characters Allowed)
+        </td>
+        </tr>
+        <!-----------------------Qualification
+       --------------------------------->
+        <tr>
+            <td>Qualification<br /><br /><b /></td>
+            <td>
+                <select id="Qualification" name="Qualification">
+                    <option value="StateBoard(10th)">StateBoard(10th)</option>
+                    <option value="StateBoard(12th)">StateBoard(12th)</option>
+                    <option value="Graduation">Graduation</option>
+                    <option value="PostGraduation">PostGraduation</option>
+                    <option value="Phd">Phd</option>
+                </select>
+            </td>
+        </tr>
+        <!-----------------------Qualification
+       --------------------------------->
+        <tr>
+            <td>Courses<br />Applied For</td>
+            <td>
+                <select id="Courses" name="Courses">
+                    <option value="CourseBCom">BCom</option>
+                    <option value="CourseBSc">BSc</option>
+                    <option value="CourseBA">BA</option>
+                    <option value="CourseBCA">BCA</option>
+                    <option value="CourseMCA">MCA</option>
+                    <option value="CourseMCom">MCom</option>
+                    <option value="CourseBCom">BCom</option>
+                    <option value="CourseMSc">MSc</option>
+                    <option value="CourseBSc">BSc</option>
+                    <option value="CourseMA">MA</option>
+                    <option value="CourseBA">BA</option>
+                </select>
+        </tr>
+        <!----------------------- Submit and Reset ------------------------------->
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </td>
+        </tr>
+    </table>
+    </form>
 </body>
 </html>

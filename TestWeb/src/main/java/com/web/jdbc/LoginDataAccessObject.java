@@ -8,8 +8,8 @@ import java.sql.SQLException;
 public class LoginDataAccessObject {
 	
 	public boolean checkLogin(String username, String password) {
-		String sqlQuery = "SELECT * FROM SchoolDB.login l where l.username=\""+username+"\" and l.password=\""+password+"\"";
-		//DBConnection dbObject = new DBConnection();
+		String sqlQuery = "SELECT * FROM studentdb.login l where l.username=\""+username+"\" and l.password=\""+password+"\"";
+		//DBConnection dbObject = new DBConnection()
 		System.out.println("the sql query ="+sqlQuery);
 		boolean loginValid= false;
 		try {

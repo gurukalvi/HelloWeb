@@ -5,6 +5,8 @@ import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebServlet;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -12,6 +14,7 @@ import java.io.PrintWriter;
 /**
  * Servlet implementation class TestGenericServlet
  */
+@WebServlet("/FirstServlet")
 public class TestGenericServlet extends GenericServlet {
 	private static final long serialVersionUID = 1L;
        
