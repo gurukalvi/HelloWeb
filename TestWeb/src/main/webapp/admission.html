@@ -42,7 +42,7 @@ color:white;
 </head>
 <body>
 <h2>Student Registration Form</h2>
-
+<form action="AdmissionServlet" method="post">
     <table>
         <!------------First Name
         -------------------------->
@@ -61,6 +61,23 @@ color:white;
                 (maxlength="50" characters Allowed)
             </td>
         </tr>
+         <!-----------------------Student_ID
+    --------------------------------->
+<tr>
+        <td>StudentID</td>
+        <td><input type="text" name="StudentID" maxlength="50" placeholder="ID.no..."/>
+(Max 50 Characters Allowed)
+        </td>
+</tr>
+
+ <!-----------------------Roll_NO
+    --------------------------------->
+<tr>
+        <td>RollNO</td>
+        <td><input type="text" name="RollNO" maxlength="50" placeholder="roll.no..."/>
+(Max 50 Characters Allowed)
+        </td>
+</tr>
         <!-----------------------Email ID
      --------------------------------->
         <tr>
@@ -109,14 +126,14 @@ color:white;
 (Max 50 Characters Allowed)
         </td>
 </tr>
-        <!----------------------Pin Code
- --------------------------------->
+  
+        <!-----------------------PinCOde
+   --------------------------------->
         <tr>
-            <td>Pin Code</td>
-            <td><input type="Number" name="PinCode" maxlength="6" placeholder="131322"/>
-                (Max 6 Characters Allowed)
-            </td>
-        </tr>
+            <td>PinCOde</td>
+            <td><input type="text" name="PinCOde"maxlength="10" placeholder="pin.." />
+                (6 Digits Allowed)
+                          </td>
         <!-----------------------State
  --------------------------------->
         <tr>
@@ -163,7 +180,15 @@ color:white;
                 </select>
             </td>
         </tr>
-        <!-----------------------Qualification
+         <!-----------------------CGPA
+   --------------------------------->
+        <tr>
+            <td>CGPA</td>
+            <td><input type="text" name="CGPA"maxlength="10" placeholder="11.." />
+                (10 Digits Allowed)
+              </td>
+        </tr>
+        <!-----------------------Courses
        --------------------------------->
         <tr>
             <td>Courses<br />Applied For</td>
