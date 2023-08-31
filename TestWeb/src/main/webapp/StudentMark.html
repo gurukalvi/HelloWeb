@@ -17,17 +17,25 @@
      
 </head>
 <body>
-<div style="width: 100%;height: 100%;">  
+<div style="width: 100%;height: 100%;vertical-align: middle;">  
 
-	<h2>Student Marks Input</h2>
-
+	
+<div style="position: relative;
+    vertical-align: middle;
+    align-content: center;
+    padding-left: 650px;
+    padding-top: 200px;" >
 <form action="StudentMarksServlet" method="post">
+	
     <table>	
-
+		<tr><td colspan="2" align="center" >
+		<h2>Student Marks Input</h2>
+		</td>
+		</tr>
         <!------------MarkID
         -------------------------->
         <tr>
-        <td>Mark ID</td>
+        <td style="width: 100px;" >Mark ID</td>
         <td>
 			<input type="text" name="MarkID"maxlength="50" />
        
@@ -134,10 +142,12 @@
             
             <!----------------------Remark
    --------------------------------->
-            
-            <textarea id="w3review" name="w3review" rows="4" cols="50">
+   <tr><td>Remarks:</td></tr>
+            <tr><td>
+            <textarea id="w3review" name="w3review" rows="4" cols="40">
             </textarea>
-            
+            </td>
+            </tr>
             <!----------------------- Submit and Reset                           
         ------------------------------->
             <tr>
@@ -149,7 +159,7 @@
             </tr>
             </table>
             </form>
-            
+            </div>
             </div>
             </body>
             </html>
