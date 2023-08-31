@@ -1,23 +1,23 @@
 <html>
 <head>
-    <title>Student Registration Form</title>
+    <title>Student Registration</title>
 <style>
 h2 {text-align: center;}
   h2{
   font-family:sans-serif;  font-size:24px;
   font-style:normal;
   fort-weight:bold;
-  color:blue;
+  color:green;
   text-align:centre;
   text-decoration:underline
   }
   table{
 font-family:verdana;
-color:white;
+color:blue;
  font-size:16px;
   font-style:normal;
   fort-weight:bold;
-  background:linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+  background:linear-gradient(to bottom, green 0%, yellow 100%,white 0%);
   border-collapse: collapse;
   broder:4px solid #000000;
   broder-style:dashed;
@@ -41,138 +41,127 @@ color:white;
 </style>
 </head>
 <body>
-<h2>Student Registration Form</h2>
-<form action="AdmissionServlet" method="post">
+<h2>Student Registration </h2>
+
     <table>
         <!------------First Name
         -------------------------->
         <tr>
         <td>First Name</td>
-        <td>*
-			<input type="text" name="FirstName"maxlength="50" placeholder="Name.." />
+        <td>
+			<input type="text" name="FirstName"maxlength="50" />
         (maxlength="50" characters Allowed)
         </td>
         </tr>
-        <!-----------------------Last Name
+        <!-----------------------Initial
         --------------------------------->
-            <tr>
+        <tr>
             <td>Initial</td>
-            <td>* 
-				<input type="text" name="Initial" maxlength="3" placeholder="Initial....." />
+            <td><input type="text" name="Initial" maxlength="3" />
                 (maxlength="50" characters Allowed)
             </td>
-            </tr>
-         <!-----------------------Student_ID
-    --------------------------------->
-        <tr>
-        <td>StudentID</td>
-        <td>*
-			<input type="text" name="StudentID" maxlength="50" placeholder="ID.no..." />
-            (Max 50 Characters Allowed)
-        </td>
         </tr>
-
- <!-----------------------Roll_NO
-    --------------------------------->
+        <!-----------------------Student_ID
+        --------------------------------->
         <tr>
-        <td>RollNO</td>
-        <td>*
-			<input type="text" name="RollNO" maxlength="50" placeholder="roll.no..." />
-           (Max 50 Characters Allowed)
-        </td>
+            <td>Student ID</td>
+            <td><input type="text" name="StudentID" maxlength="50" />
+                (maxlength="50" characters Allowed)
+            </td>
+        </tr>
+        
+          <!-----------------------RollNO
+        --------------------------------->
+        <tr>
+            <td>RollNO</td>
+            <td><input type="text" name="RollNO" maxlength="59" />
+                (maxlength="50" characters Allowed)
+            </td>
+        </tr>
+        
+        <!-----------------------CGPA
+        --------------------------------->
+        <tr>
+            <td>CGPA</td>
+            <td><input type="text" name="CGPA" maxlength="50" />
+                (maxlength="50" characters Allowed)
+            </td>
         </tr>
         
         <!-----------------------Email ID
      --------------------------------->
-            <tr>
+        <tr>
             <td>Email ID</td>
-            <td>* 
-				<input type="email" name="EmailID"maxlength="100" required   placeholder="Ininyannn@gmail.com" />
+            <td><input type="email" name="EmailID"maxlength="100" required   placeholder="Ininyannn@gmail.com" />
                 (maxlength="50" characters Allowed)
             </td>
-            </tr> 
-            
+        </tr>
         <!-----------------------Mobile Number
    --------------------------------->
-            <tr>
+        <tr>
             <td>Mobile Number</td>
-            <td>*
-				<input type="text" name="Mobile Number"maxlength="10" placeholder="789XXaXXXXX" />
+            <td><input type="text" name="Mobile Number"maxlength="10" placeholder="789XXaXXXXX" />
                 (10 Digits Allowed)
                 <input type="file" name="Bio-Data" placeholder="Upload your Resume" />
             </td>
-            </tr>
-            
+        </tr>
         <!-----------------------Gender
    --------------------------------->
-            <tr>
+        <tr>
             <td>Gender</td>
-            <td>*
-              <input type="radio" name="Gender"value="Male"/> Male
-              <input type="radio" name="Gender"value="Female"/> Female
-              <input type="radio" name="Gender"value="Others"/> Others
-           </td>
-           </tr>
-           
+        <td>
+        <input type="radio" name="Gender"value="Male"/> Male
+            <input type="radio" name="Gender"value="Female"/> Female
+            <input type="radio" name="Gender"value="Others"/> Others
+        </td>
+        </tr>
         <!-----------------------Date Of Birth
  --------------------------------->
         <tr>
             <td>Date of Birth(DOB)</td>
-        <td>*
-            <input type="date" id="start" name="DOB" min="1980-01-01" />
+        <td>
+        <input type="date" id="start" name="DOB" min="1980-01-01"  />
         </td>
         </tr>
-        
-        <!-----------------------Address
---------------------------------->
-        <tr>
-           <td>Address<br /><br /></td>
-        </tr>
-        
+       
         <!-----------------------City
     --------------------------------->
-        <tr>
+<tr>
         <td>City</td>
-        <td>* 
-			<input type="text" name="City" maxlength="50" placeholder="Place..." />
-             (Max 50 Characters Allowed)
+        <td><input type="text" name="City" maxlength="50" placeholder="Place..."/>
+(Max 50 Characters Allowed)
         </td>
-        </tr>
-  
-        <!-----------------------PinCOde
-   --------------------------------->
-            <tr>
-            <td>PinCOde</td>
-            <td>*
-				<input type="text" name="PinCOde"maxlength="10" placeholder="pin.." />
-                (6 Digits Allowed)
-             </td>
-             </tr>
-             
+</tr
+
+        <!-----------------------PinCode
+    --------------------------------->
+<tr>
+        <td>Pin Code</td>
+        <td><input type="text" name="PinCode" maxlength="50" placeholder="Place..."/>
+(Max 50 Characters Allowed)
+        </td>
+</tr>
+
         <!-----------------------State
  --------------------------------->
-            <tr>
+        <tr>
             <td>State</td>
-            <td>*
-				<input type="text" name="State" maxlength="50" placeholder="State..." />
+            <td><input type="text" name="State" maxlength="50" placeholder="State..."/>
                 (Max 50 Characters Allowed)
             </td>
-            </tr>
-            
+        </tr>
         <!-----------------------Country
  --------------------------------->
-            <tr>
+        <tr>
             <td>Country</td>
-            <td>*
-				<input type="text" name="Country" placeholder="Country..." />
+            <td><input type="text" name="Country" placeholder="Country..."/>
             </td>
-            </tr>
-            
+        </tr>
         <!-----------------------Hobbies
       --------------------------------->
         <tr>
         <td>Hobbies<br /><br /><br /></td>
-        <td>*
+        <td>
         <input type="checkbox" name="HobbyDrawing" value="Drawing"/>Drawing
             <input type="checkbox" name="HobbySinging" value="Singing"/>Singing
             <input type="checkbox" name="HobbyDancing" value="Dancing"/>Dancing
@@ -185,12 +174,11 @@ color:white;
         (Max 50 Characters Allowed)
         </td>
         </tr>
-        
         <!-----------------------Qualification
        --------------------------------->
-            <tr>
+        <tr>
             <td>Qualification<br /><br /><b /></td>
-            <td>*
+            <td>
                 <select id="Qualification" name="Qualification">
                     <option value="StateBoard(10th)">StateBoard(10th)</option>
                     <option value="StateBoard(12th)">StateBoard(12th)</option>
@@ -199,23 +187,12 @@ color:white;
                     <option value="Phd">Phd</option>
                 </select>
             </td>
-            </tr>
-            
-         <!-----------------------CGPA
-   --------------------------------->
-            <tr>
-            <td>CGPA</td>
-            <td>*
-				<input type="text" name="CGPA"maxlength="10" placeholder="11.." />
-                (10 Digits Allowed)
-              </td>
-              </tr>
-              
+        </tr>
         <!-----------------------Courses
        --------------------------------->
-            <tr>
+        <tr>
             <td>Courses<br />Applied For</td>
-            <td>*
+            <td>
                 <select id="Courses" name="Courses">
                     <option value="CourseBCom">BCom</option>
                     <option value="CourseBSc">BSc</option>
@@ -229,17 +206,15 @@ color:white;
                     <option value="CourseMA">MA</option>
                     <option value="CourseBA">BA</option>
                 </select>
-             </td>
-             </tr>
-             
+        </tr>
         <!----------------------- Submit and Reset ------------------------------->
-            <tr>
+        <tr>
             <td colspan="2" align="center">
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </td>
-            </tr>
-            </table>
-            </form>
-            </body>
-            </html>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

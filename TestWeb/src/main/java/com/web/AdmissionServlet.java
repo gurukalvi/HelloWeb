@@ -25,8 +25,10 @@ public class AdmissionServlet extends HttpServlet {
 		String cgpa=req.getParameter("CGPA");
 		String dob=req.getParameter("DOB");
 		System.out.println(" name="+name+" initial="+initial+" studentid="+studentid+" rollnumber="+rollnumber+" qualification="+qualification+" mobilenumber="+mobilenumber+" email="+email+" cgpa="+cgpa+" dob="+dob);
-		  try (Connection connection = DriverManager.getConnection("jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6641926", "sql6641926", "pG7bX7JQLi")) {
-			  String insert_query = "INSERT INTO `sql6641926`.`students` (`studentid`, `name`, `initial`, `rollnumber`, `Degree`, `Phone`, `Email`, `CGPA`, `DOB`) VALUES (?,?,?,?,?,?,?,?,?)";
+		//try(Connection connection= DriverManager.getConnection("jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6641926","sql6641926", "pG7bX7JQLi");
+		try (Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb","root", "manju12345");
+) {
+			  String insert_query = "INSERT INTO `studentdb`.`students` (`studentid`, `name`, `initial`, `rollnumber`, `Degree`, `Phone`, `Email`, `CGPA`, `DOB`) VALUES (?,?,?,?,?,?,?,?,?)";
 			  		
 	            try (PreparedStatement preparedStatement = connection.prepareStatement(insert_query)) {
 	                preparedStatement.setString(2, name);
