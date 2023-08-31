@@ -1,5 +1,6 @@
 package com.web;
 import java.io.IOException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,8 +11,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 @WebServlet("/AdmissionServlet")
 public class AdmissionServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("inside the admission servlet");
@@ -26,9 +30,9 @@ public class AdmissionServlet extends HttpServlet {
 		String dob=req.getParameter("DOB");
 		System.out.println(" name="+name+" initial="+initial+" studentid="+studentid+" rollnumber="+rollnumber+" qualification="+qualification+" mobilenumber="+mobilenumber+" email="+email+" cgpa="+cgpa+" dob="+dob);
 		//try(Connection connection= DriverManager.getConnection("jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6641926","sql6641926", "pG7bX7JQLi");
-		try (Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb","root", "manju12345");
-) {
-			  String insert_query = "INSERT INTO `studentdb`.`students` (`studentid`, `name`, `initial`, `rollnumber`, `Degree`, `Phone`, `Email`, `CGPA`, `DOB`) VALUES (?,?,?,?,?,?,?,?,?)";
+		try (Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/SchoolDB","root", "MySql2023");) 
+		{
+			  String insert_query = "INSERT INTO `SchoolDB`.`students` (`studentid`, `name`, `initial`, `rollnumber`, `Degree`, `Phone`, `Email`, `CGPA`, `DOB`) VALUES (?,?,?,?,?,?,?,?,?)";
 			  		
 	            try (PreparedStatement preparedStatement = connection.prepareStatement(insert_query)) {
 	                preparedStatement.setString(2, name);
@@ -57,7 +61,7 @@ public class AdmissionServlet extends HttpServlet {
 	            System.out.println("Successfuly inserted");
 	        }
 		RequestDispatcher dispatcher = null;
-		dispatcher = req.getRequestDispatcher("StudentMarks.html");
+		dispatcher = req.getRequestDispatcher("StudentMark.html");
 		dispatcher.forward(req, resp);
 	}
 }
