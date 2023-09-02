@@ -29,9 +29,9 @@ public class StudentMarkServlet extends HttpServlet {
 		System.out.println(" markid="+markid+" studentid="+studentid+" tamil="+tamil+" english="+english+" maths="+maths+" science="+science+" social="+social+" computer="+computer+" totalworkingdays="+totalworkingdays+" presentdays="+presentdays);
 		//try(Connection connection= DriverManager.getConnection("jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6641926","sql6641926", "pG7bX7JQLi");
 		
-		try (Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb","root", "manju12345");) 
+		try (Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/schooldb","root", "manju12345");) 
 				{
-			  String insert_query = "INSERT INTO `studentdb`.`marks` (`mark_id`, `student_id`, `tamil`, `english`, `maths`, `science`, `social`, `computer`, `total_working_days`, `present_days`)VALUES (?,?,?,?,?,?,?,?,?,?)";
+			  String insert_query = "INSERT INTO `schooldb`.`marks` (`mark_id`, `student_id`, `tamil`, `english`, `maths`, `science`, `social`, `computer`, `total_working_days`, `present_days`)VALUES (?,?,?,?,?,?,?,?,?,?)";
 			  		
 	            try (PreparedStatement preparedStatement = connection.prepareStatement(insert_query)) {
 	            	preparedStatement.setString(1, markid); 
