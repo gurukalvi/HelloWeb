@@ -10,7 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-@WebServlet("/TotalServlet")
+@WebServlet("/StudentMarkServlet")
 public class StudentMarkServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,15 +35,15 @@ public class StudentMarkServlet extends HttpServlet {
 			  		
 	            try (PreparedStatement preparedStatement = connection.prepareStatement(insert_query)) {
 	            	preparedStatement.setString(1, markid); 
-	            	preparedStatement.setString(3, studentid);
-	            	preparedStatement.setString(4, tamil);
-	            	preparedStatement.setString(5, english);
-	            	preparedStatement.setString(6, maths);
-	                preparedStatement.setString(7, science);
-	                preparedStatement.setString(8, social);
-	                preparedStatement.setString(9, computer);
-	                preparedStatement.setString(12, totalworkingdays);
-	             	preparedStatement.setString(13, presentdays);
+	            	preparedStatement.setString(2, studentid);
+	            	preparedStatement.setString(3, tamil);
+	            	preparedStatement.setString(4, english);
+	            	preparedStatement.setString(5, maths);
+	                preparedStatement.setString(6, science);
+	                preparedStatement.setString(7, social);
+	                preparedStatement.setString(8, computer);
+	                preparedStatement.setString(9, totalworkingdays);
+	             	preparedStatement.setString(10, presentdays);
 	               	              	      
 	                int rowsAffected = preparedStatement.executeUpdate();
 	                if (rowsAffected >0) {
