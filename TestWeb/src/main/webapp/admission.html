@@ -2,33 +2,42 @@
 <head>
     <title>Student Registration</title>
 <style>
-h2 {text-align: center;}
-  h2{
+	h1 {
+		outline: #4CAF50 solid 5px;
+  border: 5px solid yellow;
+  border-radius: 12px;
+  padding: 5px;}
+h1 {text-align: center;}
+  h1{
   font-family:sans-serif;  font-size:24px;
-  font-style:normal;
+  font-style:italic;
   fort-weight:bold;
-  color:midnightblue;
+  color:hotpink;
   text-align:centre;
   text-decoration:underline
+  
   }
   table{
+	  
+	  width:100% ;
+	  border:100;
 font-family:verdana;
-color:#B2D732 #4424D6;
+color:red greenyellow;
  font-size:16px;
   font-style:normal;
-  fort-weight:bold;
-  background:linear-gradient(to bottom, green ,#DFFF00 90%);
+  font-weight:bold;
+           background:linear-gradient(to bottom ,pink,#9FE2BF 125%);
   border-collapse: collapse;
-  broder:4px solid rebeccapurple;
-  broder-style:dashed;
+  border:4px solid ;
+  border-style:groove;
 }
 
   table.inner{
-  border:10px
+  border:5px
   }
   input[type=text], input[type=email],input[type=number]{
   width:50%;
-  padding:6px 12px;
+  padding:5px 12px;
   margin:5px 0;
   box-sizing:border-box;
   }
@@ -41,7 +50,7 @@ color:#B2D732 #4424D6;
 </style>
 </head>
 <body>
-<h2>Student Registration Form</h2>
+<h1>Student Registration Form</h1>
 <form action="AdmissionServlet" method="post">
     <table>
         <!------------First Name
@@ -50,7 +59,6 @@ color:#B2D732 #4424D6;
         <td>First Name</td>
         <td>
 			<input type="text" name="FirstName"maxlength="50" />
-        (maxlength="50" characters Allowed)
         </td>
         </tr>
         <!-----------------------Initial
@@ -58,7 +66,6 @@ color:#B2D732 #4424D6;
         <tr>
             <td>Initial</td>
             <td><input type="text" name="Initial" maxlength="3" />
-                (maxlength="50" characters Allowed)
             </td>
         </tr>
         <!-----------------------Student_ID
@@ -66,7 +73,6 @@ color:#B2D732 #4424D6;
         <tr>
             <td>Student ID</td>
             <td><input type="text" name="StudentID" maxlength="50" />
-                (maxlength="50" characters Allowed)
             </td>
         </tr>
         
@@ -75,7 +81,6 @@ color:#B2D732 #4424D6;
         <tr>
             <td>RollNO</td>
             <td><input type="text" name="RollNO" maxlength="59" />
-                (maxlength="50" characters Allowed)
             </td>
         </tr>
         
@@ -84,7 +89,6 @@ color:#B2D732 #4424D6;
         <tr>
             <td>CGPA</td>
             <td><input type="text" name="CGPA" maxlength="50" />
-                (maxlength="50" characters Allowed)
             </td>
         </tr>
         
@@ -92,17 +96,14 @@ color:#B2D732 #4424D6;
      --------------------------------->
         <tr>
             <td>Email ID</td>
-            <td><input type="email" name="EmailID"maxlength="100" required   placeholder="Ininyannn@gmail.com" />
-                (maxlength="50" characters Allowed)
+            <td><input type="email" name="EmailID"maxlength="100" required   placeholder="........@gmail.com" />
             </td>
         </tr>
         <!-----------------------Mobile Number
    --------------------------------->
         <tr>
             <td>Mobile Number</td>
-            <td><input type="text" name="Mobile Number"maxlength="10" placeholder="789XXaXXXXX" />
-                (10 Digits Allowed)
-                <input type="file" name="Bio-Data" placeholder="Upload your Resume" />
+            <td><input type="text" name="Mobile Number"maxlength="10" placeholder="+91xxxxxxxxxx" />
             </td>
         </tr>
         <!-----------------------Gender
@@ -139,8 +140,7 @@ color:#B2D732 #4424D6;
 <tr>
         <td>City</td>
         <td><input type="text" name="City" maxlength="50" placeholder="Place..."/>
-(Max 50 Characters Allowed)
-        </td>
+    </td>
 </tr
 
         <!-----------------------PinCode
@@ -148,7 +148,6 @@ color:#B2D732 #4424D6;
 <tr>
         <td>Pin Code</td>
         <td><input type="text" name="PinCode" maxlength="50" placeholder="Place..."/>
-(Max 50 Characters Allowed)
         </td>
 </tr>
 
@@ -157,7 +156,6 @@ color:#B2D732 #4424D6;
         <tr>
             <td>State</td>
             <td><input type="text" name="State" maxlength="50" placeholder="State..."/>
-                (Max 50 Characters Allowed)
             </td>
         </tr>
         <!-----------------------Country
@@ -173,15 +171,12 @@ color:#B2D732 #4424D6;
         <td>Hobbies<br /><br /><br /></td>
         <td>
         <input type="checkbox" name="HobbyDrawing" value="Drawing"/>Drawing
-            <input type="checkbox" name="HobbySinging" value="Singing"/>Singing
-            <input type="checkbox" name="HobbyDancing" value="Dancing"/>Dancing
             <input type="checkbox" name="HobbyCooking" value="Cooking"/>Cooking
             <input type="checkbox" name="HobbyPlaying" value="Playing"/>Playing
-            <input type="checkbox" name="HobbyWatching Tv" value="Watching Tv"/>Watching Tv
             <input type="checkbox" name="HobbyReading" value="Reading"/>Reading
             <input type="checkbox" name="HobbyOthers" value="Others"/>Others
-        <input type="Text" name="Other Hobby"maxlength="50"placeholder="EX-Teaching"/>
-        (Max 50 Characters Allowed)
+       
+        
         </td>
         </tr>
         <!-----------------------Qualification

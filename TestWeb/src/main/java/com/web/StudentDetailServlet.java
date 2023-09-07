@@ -1,5 +1,6 @@
 package com.web;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import com.web.jdbc.DBConnection;
 
@@ -35,7 +37,7 @@ public class StudentDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
 		response.setContentType("text/html");
-		String outputTable = "<table border=2 ><tr><td>Student RollNumber</td><td>Student Name</td><td>Degree</td><td>Mobile Number</td><td>Email</td><tr>";
+		String outputTable = "<table border=2, align=center><tr><td>Student RollNumber</td><td>Student Name</td><td>Degree</td><td>Mobile Number</td><td>Email</td><td>DOB</td><tr>";
 		
 		String studId = request.getParameter("studentid");
 		System.out.println("inside the doGet student id ="+studId);
@@ -46,8 +48,12 @@ public class StudentDetailServlet extends HttpServlet {
 			PreparedStatement stat=conn.prepareStatement(query);
 			ResultSet resultSet = stat.executeQuery();
 			while (resultSet.next()) {
-				outputTable = outputTable.concat("<tr><td>"+resultSet.getString("rollno")+"</td><td>"+resultSet.getString("studentname")+"</tr>");
+			//	outputTable = outputTable.concat("<tr><td>"+resultSet.getString("rollno")+"</td><td>"+resultSet.getString("studentname")+"</tr>");
+				outputTable = outputTable.concat("<tr><td>"+resultSet.getString("rollno")+"</td><td>"+resultSet.getString("studentname")+"</td><td>"+resultSet.getString("degree")+"</td><td>"+resultSet.getString("mobile_no")+"</td><td>"+resultSet.getString("email")+"</td><td>"+resultSet.getString("DOB")+"</tr>");
+
+			
 			}
+
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

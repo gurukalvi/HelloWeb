@@ -3,15 +3,25 @@
 <head>
     <title>Student Marks Input</title>
     <style>
+		h1 {
+				outline: #4CAF50 solid 5px;
+  border: 5px solid yellow;
+  border-radius: 12px;
+  padding: 5px;
+  color: hotpink;}
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
- 
-           background:linear-gradient(to bottom, #008000 ,#9FE2BF 125%);
+           background:linear-gradient(to bottom ,pink,#9FE2BF 125%);
         }
+        table{
+			border-collapse: collapse;
+  border:4px solid ;
+  border-style:outset;
+		}
         
     </style>
      
@@ -23,19 +33,25 @@
 <div style="position: relative;
     vertical-align: middle;
     align-content: center;
-    padding-left: 350px;
+    padding-left: 500px;
     padding-top: 150px;" >
 <form action="StudentMarkServlet" method="post">
 	
+	
     <table>	
 		<tr><td colspan="2" align="center" >
-		<h2>Student Marks Input</h2>
+		<h1>Student Marks Input</h1>
+		<style>
+h1 {
+  text-shadow: 2px 2px;
+}
+</style>
 		</td>
 		</tr>
         <!------------MarkID
         -------------------------->
         <tr>
-        <td style="width: 100px;" >Mark ID</td>
+        <td style="width: 100px," >Mark ID</td>
         <td>
 			<input type="text" name="MarkID"maxlength="50" />
        
