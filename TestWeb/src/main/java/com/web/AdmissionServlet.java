@@ -31,9 +31,11 @@ public class AdmissionServlet extends HttpServlet {
 		String year=req.getParameter("Year");
 		System.out.println(" name="+name+" initial="+initial+" studentid="+studentid+" rollnumber="+rollnumber+" qualification="+qualification+" mobilenumber="+mobilenumber+" email="+email+" cgpa="+cgpa+" dob="+dob);
 		//try(Connection connection= DriverManager.getConnection("jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6641926","sql6641926", "pG7bX7JQLi");
-		try (Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/schooldb","root", "manju12345");) 
+		//try (Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/schooldb","root", "manju12345");) 
+		try(Connection connection= DriverManager.getConnection("jdbc:mysql://test-db.csse9hpx86cr.us-east-1.rds.amazonaws.com:3306/testdb","admin","MySql2023");)
+		
 		{
-			  String insert_query = "INSERT INTO `schooldb`.`student` (`student_id`, `name`, `initial`, `roll_no`, `degree`, `year`, `mobile_no`, `dob`, `cgpa`, `email`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+			  String insert_query = "INSERT INTO `testdb`.`student` (`StudentID`, `StudentName`, `Initial`, `rollno`, `Degree`, `Year`, `mobile_no`, `Email`, `CGPA`, `DOB`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			  		
 	            try (PreparedStatement preparedStatement = connection.prepareStatement(insert_query)) {
 	            	
@@ -44,9 +46,9 @@ public class AdmissionServlet extends HttpServlet {
 	                preparedStatement.setString(5, qualification);
 	                preparedStatement.setString(6, year);
 	             	preparedStatement.setString(7, mobilenumber);
-	             	preparedStatement.setString(8, dob);
+	             	preparedStatement.setString(10, dob);
 	                preparedStatement.setString(9, cgpa);
-	                preparedStatement.setString(10, email);       
+	                preparedStatement.setString(8, email);       
 	                int rowsAffected = preparedStatement.executeUpdate();
 	                if (rowsAffected >0) {
 	                	System.out.println("Successfuly inserted");
@@ -67,4 +69,4 @@ public class AdmissionServlet extends HttpServlet {
 		dispatcher.forward(req, resp);
 	}
 }
-
+//background:linear-gradient(to bottom, #FFC0CB 20%,#FF69B4 100%);

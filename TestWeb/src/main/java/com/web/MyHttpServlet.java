@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import com.web.jdbc.LoginDataAccessObject;
 
@@ -65,13 +66,22 @@ public class MyHttpServlet extends HttpServlet {
 		PrintWriter write = response.getWriter();
 		response.setContentType("text/html");
 
-		boolean isLoginValid = logindbObj.checkLogin(username, password);
-		
+		//boolean isLoginValid = logindbObj.checkLogin(username, password);
+		HashMap<String,String> details=logindbObj.getLoginDeatils(username, password);
 		// sendRedirect
-		if (isLoginValid) { // jdbc data base check
+		if(!details.isEmpty()) { // jdbc data base check
 			System.out.println("valid username and password");
 			RequestDispatcher dispatcher = null;
-			dispatcher = request.getRequestDispatcher("admission.html");
+			
+			if(details.get("userType").equalsIgnoreCase("student")) {
+				dispatcher = request.getRequestDispatcher("Student.html");
+				System.out.println("This is student login");
+			}else {
+				dispatcher = request.getRequestDispatcher("admission.html");
+				System.out.println("This is Staf login");
+
+			}
+			//dispatcher = request.getRequestDispatcher("admission.html");
 			dispatcher.forward(request, response);
 			
 		} else {

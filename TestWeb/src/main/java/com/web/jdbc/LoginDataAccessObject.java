@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 public class LoginDataAccessObject {
 	
@@ -23,12 +24,45 @@ public class LoginDataAccessObject {
 			
 			
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
 		
 		return loginValid;
 	}
+	public HashMap<String, String> getLoginDeatils(String username, String password) {
+		HashMap<String, String>LoginDeatils=new HashMap<>();
+		
+		String sqlQuery = "SELECT * FROM testdb.login l where l.username=\""+username+"\" and l.password=\""+password+"\"";
+		//DBConnection dbObject = new DBConnection()
+		System.out.println("the sql query ="+sqlQuery);
+		boolean loginValid= false;
+		try {
+			Connection conn= DBConnection.getConnection();
+			PreparedStatement stat=conn.prepareStatement(sqlQuery);
+			ResultSet result= stat.executeQuery();
+			while (result.next()) {
+				String userName=result.getString(1);
+				String status=result.getString(3);
+				String userType=result.getString(4);
+				System.out.println("userName "+ userName+" status "+status+" user type role ="+userType);
+				LoginDeatils.put("userName",userName); 
+				LoginDeatils.put("status",status); 
+				LoginDeatils.put("userType",userType); 
+
+				loginValid = true;
+			}
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return LoginDeatils;
+	}
+
 
 }
