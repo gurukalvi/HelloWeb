@@ -2,8 +2,11 @@ package com.web;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebInitParam;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,11 +19,17 @@ import com.web.jdbc.LoginDataAccessObject;
 /**
  * Servlet implementation class MyHttpServlet
  */
-@WebServlet("/MyHttpServlet")
+@WebServlet( urlPatterns =  "/MyHttpServlet",
+			initParams = @WebInitParam(
+					name = "defaultPassword",
+					value = "admin"
+					)
+		)
 public class MyHttpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      
 	int userCount = 0;
+	ServletConfig config=null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -28,29 +37,24 @@ public class MyHttpServlet extends HttpServlet {
     	System.out.println("inside the constructor");
     }
 
+    
+    
+//    public void init() throws ServletException {
+//    	System.out.println("inside the init method");
+//    	this.config = getServletConfig();
+//    }
+    
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		System.out.println("inside the init method "+config.getServletName());
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		userCount++;
-		//name = manju
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		System.out.println("inside the init method  with servlet config "+config.getServletName());
+		this.config = config;
 		
-		System.out.println("inside the doGet method");
-		PrintWriter write=response.getWriter();
-		response.setContentType("text/html");
-		write.println("<h2>Welcome "+username+" Password= "+password+" to HttpServlets doget You are visitor Number: "+userCount+"</h1>");
 	}
+	
 
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -58,6 +62,18 @@ public class MyHttpServlet extends HttpServlet {
 			throws ServletException, IOException {
 		LoginDataAccessObject logindbObj=new LoginDataAccessObject();
 		userCount++;
+		
+		//getContextParameter
+		ServletContext context=config.getServletContext();
+		String code = context.getInitParameter("WebSiteCode");
+		System.out.println("the cotext parameter code ="+code);
+		
+		context.setAttribute("FirstCustomer", "Guru");
+		
+		//get configParameter
+		String defaultPwd = config.getInitParameter("defaultPassword");
+		System.out.println("config init parameter pwd= "+defaultPwd);
+		
 		// name = manju
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -74,10 +90,18 @@ public class MyHttpServlet extends HttpServlet {
 			RequestDispatcher dispatcher = null;
 			
 			if(details.get("userType").equalsIgnoreCase("student")) {
-				dispatcher = request.getRequestDispatcher("Student.html");
+				dispatcher = request.getRequestDispatcher("Student.jsp");
+				
+				Cookie cookieObj=new Cookie("TestWeb", details.get("userName") );
+				cookieObj.setMaxAge(120);
+				response.addCookie(cookieObj);
+				
+				request.setAttribute("abc", details.get("userName"));
+				
 				System.out.println("This is student login");
 			}else {
 				dispatcher = request.getRequestDispatcher("admission.html");
+				response.sendRedirect("www.google.com");
 				System.out.println("This is Staf login");
 
 			}

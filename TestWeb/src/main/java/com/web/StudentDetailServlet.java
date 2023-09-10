@@ -1,8 +1,11 @@
 package com.web;
 
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -35,8 +38,27 @@ public class StudentDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		String name = (String)request.getAttribute("name");
+		System.out.println("user logged into website ="+name);
+		
+		ServletConfig config = getServletConfig();
+		ServletContext context=config.getServletContext();
+		String code = context.getInitParameter("WebSiteCode");
+		System.out.println("the cotext parameter inside StudentDetailServlet code ="+code);
+		
+		//getConfig parameter
+		String defaultPwd = config.getInitParameter("defaultPassword");
+		System.out.println("config init parameter pwd= "+defaultPwd);
+				
+		
 		PrintWriter out=response.getWriter();
 		response.setContentType("text/html");
+		
+		
+		
+		
 		String outputTable = "<table border=2, align=center><tr><td>Student RollNumber</td><td>Student Name</td><td>Degree</td><td>Mobile Number</td><td>Email</td><td>DOB</td><tr>";
 		
 		String studId = request.getParameter("studentid");
@@ -59,6 +81,21 @@ public class StudentDetailServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		outputTable = outputTable.concat("</table>");
+		
+		
+		Cookie ck[]=request.getCookies();  
+		for(int i=0;i<ck.length;i++){  
+			String cookieName = ck[i].getName();
+			if(cookieName.equals("TestWeb")) {
+				out.print("<br>"+ck[i].getName()+" "+ck[i].getValue());//printing name and value of cookie  
+			}
+		}  
+
+		
+		String username = (String)request.getAttribute("abc");
+		
+		outputTable =outputTable.concat("<br><span>LoggedIn User: "+username+"</span></br>");
+		
 		System.out.println(outputTable);
 		out.println(outputTable);
 		
