@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="java.util.HashMap"%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -6,8 +7,13 @@
 </head>
 <body>
 <h1>Welcome To Homepage</h1><br>
-<span style="position: 10, 100;" >LoggedIn User : <%= (String)request.getAttribute("abc") %>  </span>
-<a href="StudentDetailServlet?studentid=1">Get Student Details</a><br>
+<% 
+		HashMap<String, String> userDetailsMap= (HashMap) session.getAttribute("userObject");
+%>
+
+<span style="position: 10, 100;" >LoggedIn User : <%= (String)userDetailsMap.get("userName") %>  </span> <br>
+<span style="position: 10, 100;" >LoggedIn User Roll : <%= (String)userDetailsMap.get("userType") %>  </span><br>
+<a href="StudentDetailServlet">Get Student Details</a><br>
 <% 
 
 Cookie ck[]=request.getCookies();  

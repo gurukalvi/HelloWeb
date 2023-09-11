@@ -10,8 +10,11 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.HashMap;
 
 import com.web.jdbc.LoginDataAccessObject;
@@ -82,6 +85,8 @@ public class MyHttpServlet extends HttpServlet {
 		PrintWriter write = response.getWriter();
 		response.setContentType("text/html");
 
+		HttpSession session=request.getSession();
+		
 		//boolean isLoginValid = logindbObj.checkLogin(username, password);
 		HashMap<String,String> details=logindbObj.getLoginDeatils(username, password);
 		// sendRedirect
@@ -95,13 +100,16 @@ public class MyHttpServlet extends HttpServlet {
 				Cookie cookieObj=new Cookie("TestWeb", details.get("userName") );
 				cookieObj.setMaxAge(120);
 				response.addCookie(cookieObj);
+				Cookie cookieObjTime=new Cookie("TestWeb-loginTime", new Date().toString() );
 				
 				request.setAttribute("abc", details.get("userName"));
+				
+				session.setAttribute("userObject", details);
 				
 				System.out.println("This is student login");
 			}else {
 				dispatcher = request.getRequestDispatcher("admission.html");
-				response.sendRedirect("www.google.com");
+				
 				System.out.println("This is Staf login");
 
 			}
