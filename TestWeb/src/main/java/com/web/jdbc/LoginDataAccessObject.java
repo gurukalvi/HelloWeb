@@ -46,10 +46,14 @@ public class LoginDataAccessObject {
 				String userName=result.getString(1);
 				String status=result.getString(3);
 				String userType=result.getString(4);
+				String userId=result.getString(7);
+				
 				System.out.println("userName "+ userName+" status "+status+" user type role ="+userType);
 				LoginDeatils.put("userName",userName); 
 				LoginDeatils.put("status",status); 
 				LoginDeatils.put("userType",userType); 
+				LoginDeatils.put("userId",userId); 
+				
 
 				loginValid = true;
 			}

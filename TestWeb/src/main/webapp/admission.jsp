@@ -163,6 +163,7 @@ color:red greenyellow;
             <td>Country</td>
             <td><input type="text" name="Country" placeholder="Country..."/>
             </td>
+            <input type="hidden" name="loggedinUser" value="Prasath" />
         </tr>
         <!-----------------------Hobbies
       --------------------------------->
