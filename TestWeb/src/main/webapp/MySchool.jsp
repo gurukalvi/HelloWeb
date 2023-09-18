@@ -12,9 +12,9 @@
 
     </td>
     <td colspan="4" align="right;" >
-      
-      <%@ include file="admission_sub.jsp" %>
-      
+      <img src="collegeee.jpg" sizes="50%" style="
+    width: 800px;
+    align-content: right;" >
     </td>
 
   </tr>

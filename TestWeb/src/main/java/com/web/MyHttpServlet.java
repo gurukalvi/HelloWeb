@@ -82,17 +82,8 @@ public class MyHttpServlet extends HttpServlet {
 			
 			session.setAttribute("userObject", details);
 
-			if(details.get("userType").equalsIgnoreCase("student")) {
-				dispatcher = request.getRequestDispatcher("Student.jsp");
-															
-				System.out.println("This is student login");
-			}else {
-				dispatcher = request.getRequestDispatcher("admission.jsp");
-				
-				System.out.println("This is Staf login");
-
-			}
-			//dispatcher = request.getRequestDispatcher("admission.html");
+			
+			dispatcher = request.getRequestDispatcher("MySchool.jsp");
 			dispatcher.forward(request, response);
 			
 		} else {
