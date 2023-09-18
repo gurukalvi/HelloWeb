@@ -1,3 +1,8 @@
+ <% 
+		HashMap<String, String> userDetailsMap2= (HashMap) session.getAttribute("userObject");
+     if(userDetailsMap2!=null){
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +17,9 @@
 
     </td>
     <td colspan="4" align="right;" >
-      
-      <%@ include file="admission_sub.jsp" %>
-      
+      <img src="collegeee.jpg" sizes="50%" style="
+    width: 800px;
+    align-content: right;" >
     </td>
 
   </tr>
@@ -41,3 +46,12 @@
 
 </body>
 </html>
+<%
+     }
+     else{
+    	 System.out.println("inside the else block if userObject is null ");
+    	 %>
+    	 	<jsp:forward page="Login.jsp"></jsp:forward>
+    	 <%
+     }
+%>

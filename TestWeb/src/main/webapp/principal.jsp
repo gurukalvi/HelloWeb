@@ -1,20 +1,24 @@
+ <% 
+		HashMap<String, String> userDetailsMap2= (HashMap) session.getAttribute("userObject");
+     if(userDetailsMap2!=null){
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Test</title>
+  <meta charset="UTF-8">
+  <title>Principal</title>
 </head>
 <body>
 <!-- #rrggbb rr 0-9 a b c d e f -->
 <table style="height:100%;width:100%"  align="center" bgcolor="#acdce6" >
-	<%@ include file="header_menu.jsp" %>
+  <%@ include file="header_menu.jsp" %>
   <tr style="height:500px" >
     <td>
 
     </td>
     <td colspan="4" align="right;" >
-      
-      <%@ include file="admission_sub.jsp" %>
-      
+      <h1> Manju </h1>
     </td>
 
   </tr>
@@ -41,3 +45,12 @@
 
 </body>
 </html>
+<%
+     }
+     else{
+    	 System.out.println("inside the else block if userObject is null ");
+    	 %>
+    	 	<jsp:forward page="Login.jsp"></jsp:forward>
+    	 <%
+     }
+%>
