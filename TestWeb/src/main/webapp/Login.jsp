@@ -12,6 +12,13 @@
   background-size: cover;
         
         }
+        
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
     .login-container {
 
       width: 80%;
@@ -37,6 +44,23 @@ h1 {
       <h1 class="mb-4">Login</h1>
       <img src="Manju1.png" alt="Login Image" class="square mb-3" style="width: 150px; height: 150px;">
       <form action="MyHttpServlet" method="POST">
+      
+        <div class="error-message">
+             
+                <!-- Display login error messages here -->
+               <%
+               	
+               	String errorMsg = (String)session.getAttribute("errorMessage");
+             
+               	if(errorMsg != null){
+               %>
+                
+                <%= session.getAttribute("errorMessage") %>
+              
+                <%
+               	}
+                %>
+  		</div>
         <div class="mb-3">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" class="form-control" required>
@@ -50,6 +74,6 @@ h1 {
       <p class="mt-3"><a href="forgotPassword.html">Forgot Password?</a></p>
       <p><a href="NewSignup.html">New Signup</a></p>
     </div>
-  </div>
+   
 </body>
 </html>

@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 @WebServlet("/StudentMarkServlet")
 public class StudentMarkServlet extends HttpServlet {
 	@Override
@@ -61,6 +64,11 @@ public class StudentMarkServlet extends HttpServlet {
 	             	preparedStatement.setInt(10, totalMarks);
 	             	preparedStatement.setDouble(13, attendedPercentage);
 	                int rowsAffected = preparedStatement.executeUpdate();
+	                
+	                // HttpSession session=request.getSession();
+	        		
+	        		//HashMap<String, String> userDetailsMap= (HashMap)session.getAttribute("userObject");
+	        		
 	                if (rowsAffected >0) {
 	                	System.out.println("Successfuly inserted");
 	           

@@ -140,7 +140,7 @@ color:red greenyellow;
         <td>City</td>
         <td><input type="text" name="City" maxlength="50" placeholder="Place..."/>
     </td>
-</tr
+</tr>
 
         <!-----------------------PinCode
     --------------------------------->

@@ -5,12 +5,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
+
+import jakarta.security.auth.message.callback.PrivateKeyCallback.Request;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/AdmissionServlet")
 public class AdmissionServlet extends HttpServlet {
@@ -50,6 +54,11 @@ public class AdmissionServlet extends HttpServlet {
 	                preparedStatement.setString(9, cgpa);
 	                preparedStatement.setString(8, email);       
 	                int rowsAffected = preparedStatement.executeUpdate();
+	            	
+	               // HttpSession session=request.getSession();
+	        		
+	        		//HashMap<String, String> userDetailsMap= (HashMap)session.getAttribute("userObject");
+	        		
 	                if (rowsAffected >0) {
 	                	System.out.println("Successfuly inserted");
 	           
@@ -65,7 +74,7 @@ public class AdmissionServlet extends HttpServlet {
 	            System.out.println("Successfuly inserted");
 	        }
 		RequestDispatcher dispatcher = null;
-		dispatcher = req.getRequestDispatcher("StudentMark.html");
+		dispatcher = req.getRequestDispatcher("StudentMark.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

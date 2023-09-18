@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="java.util.HashMap"%>
 <html>
 <head>
     <title>Student Marks Input</title>
@@ -37,6 +38,14 @@
     padding-top: 150px;" >
 <form action="StudentMarkServlet" method="post">
 	
+	<% 
+		HashMap<String, String> userDetailsMap= (HashMap) session.getAttribute("userObject");
+%>
+
+<span style="position: 10, 100;" >LoggedIn User : <%= (String)userDetailsMap.get("userName") %>  </span> <br>
+<span style="position: 10, 100;" >LoggedIn User Roll : <%= (String)userDetailsMap.get("userType") %>  </span><br>
+<a href="StudentDetailServlet">Get Student Details</a><br>
+
 	
     <table>	
 		<tr><td colspan="2" align="center" >

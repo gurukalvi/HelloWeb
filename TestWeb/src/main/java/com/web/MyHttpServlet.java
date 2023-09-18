@@ -64,27 +64,13 @@ public class MyHttpServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		LoginDataAccessObject logindbObj=new LoginDataAccessObject();
-		userCount++;
-		
-		//getContextParameter
-		ServletContext context=config.getServletContext();
-		String code = context.getInitParameter("WebSiteCode");
-		System.out.println("the cotext parameter code ="+code);
-		
-		context.setAttribute("FirstCustomer", "Guru");
-		
-		//get configParameter
-		String defaultPwd = config.getInitParameter("defaultPassword");
-		System.out.println("config init parameter pwd= "+defaultPwd);
 		
 		// name = manju
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-
-		System.out.println("inside the doPost method");
-		PrintWriter write = response.getWriter();
-		response.setContentType("text/html");
-
+		
+		System.out.println(username+"  "+password);
+		
 		HttpSession session=request.getSession();
 		
 		//boolean isLoginValid = logindbObj.checkLogin(username, password);
@@ -94,21 +80,14 @@ public class MyHttpServlet extends HttpServlet {
 			System.out.println("valid username and password");
 			RequestDispatcher dispatcher = null;
 			
+			session.setAttribute("userObject", details);
+
 			if(details.get("userType").equalsIgnoreCase("student")) {
 				dispatcher = request.getRequestDispatcher("Student.jsp");
-				
-				Cookie cookieObj=new Cookie("TestWeb", details.get("userName") );
-				cookieObj.setMaxAge(120);
-				response.addCookie(cookieObj);
-				Cookie cookieObjTime=new Cookie("TestWeb-loginTime", new Date().toString() );
-				
-				request.setAttribute("abc", details.get("userName"));
-				
-				session.setAttribute("userObject", details);
-				
+															
 				System.out.println("This is student login");
 			}else {
-				dispatcher = request.getRequestDispatcher("admission.html");
+				dispatcher = request.getRequestDispatcher("admission.jsp");
 				
 				System.out.println("This is Staf login");
 
@@ -117,8 +96,9 @@ public class MyHttpServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 			
 		} else {
+			session.setAttribute("errorMessage", "Invalid UserName or Password");
 			System.out.println("invalid username password");
-			response.sendRedirect("Login.html");
+			response.sendRedirect("Login.jsp");
 		}
 
 	}

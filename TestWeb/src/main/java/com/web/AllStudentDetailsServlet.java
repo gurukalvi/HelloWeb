@@ -10,6 +10,8 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -63,6 +65,9 @@ public class AllStudentDetailsServlet extends HttpServlet {
 		String defaultDays = config.getInitParameter("defaltTotalDays");
 		System.out.println("config init parameter defaultDays= "+defaultDays);
 		
+	HttpSession session=request.getSession();
+		
+		HashMap<String, String> userDetailsMap= (HashMap)session.getAttribute("userObject");
 		
 		
 		PrintWriter out=response.getWriter();
