@@ -1,3 +1,9 @@
+ <% 
+		HashMap<String, String> userDetailsMap2= (HashMap) session.getAttribute("userObject");
+     if(userDetailsMap2!=null){
+%>
+
+
 <!DOCTYPE html>
 <%@page import="java.util.HashMap"%>
 <html>
@@ -24,3 +30,12 @@ for(int i=0;i<ck.length;i++){
 %>
 </body>
 </html>
+<%
+     }
+     else{
+    	 System.out.println("inside the else block if userObject is null ");
+    	 %>
+    	 	<jsp:forward page="Login.jsp"></jsp:forward>
+    	 <%
+     }
+%>

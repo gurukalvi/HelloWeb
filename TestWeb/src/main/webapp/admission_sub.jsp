@@ -1,3 +1,5 @@
+
+ <%@page import="java.util.HashMap"%>
 <html>
 <head>
     <title>Student Registration</title>
@@ -221,3 +223,4 @@ font-family:verdana;
     </form>
 </body>
 </html>
+`
