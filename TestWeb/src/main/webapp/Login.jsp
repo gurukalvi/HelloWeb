@@ -40,6 +40,31 @@ h1 {
 </style>
 <script type="text/javascript">
 
+	$(document).ready(function(){
+
+	  	$("#loginButton").click(function(){
+	  	        $("#usernameError").html("");
+				$("#passwordError").html("");
+		  	    
+		  	   var usernameValue = $("#usernameId").val();
+		  	 var passwordValue = $("#passwordId").val();
+		  	console.log("Username Value = "+usernameValue);
+			console.log("Password Value = "+passwordValue);
+			if(usernameValue.length <= 3 || passwordValue.length < 5){
+				if(usernameValue.length <= 3){
+					$("#usernameError").html("userName should be more than 3 characters");
+				}
+				if(passwordValue.length < 5){
+					$("#passwordError").html("Password should be more than 6 characters");
+				}
+			}
+			else{
+				$("#loginForm").submit();
+			}
+	    });
+	});
+
+<!--
 function showWindow(){
 	//alert("onload function");
 	console.log("Inside the showWindow javascript method");
@@ -67,11 +92,11 @@ function showWindow(){
 	
 	
 }
-
+-->
 </script>
   
 </head>
-<body >
+<body>
   <div class="login-container">
     <div class="rounded p-4 bg-light text-center">
       <h1 class="mb-4">Login</h1>
@@ -104,7 +129,7 @@ function showWindow(){
           <input type="password" id="passwordId" name="password" class="form-control" ><br>
           <div id="passwordError" style="color: red;" ></div>
         </div>
-        <button id="button" type="button" class="btn btn-primary" onclick="showWindow()" >Login</button>
+        <button id="loginButton" type="button" class="btn btn-primary" >Login</button>
       </form>
       <p id="forgetPwd" class="mt-3"><a href="forgotPassword.html">Forgot Password?</a></p>
       <p><a href="NewSignup.html">New Signup</a></p>
