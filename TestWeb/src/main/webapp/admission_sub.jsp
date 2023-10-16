@@ -9,7 +9,7 @@ h1 {text-align: center;}
   stud_header{
   font-family:sans-serif;  font-size:24px;
   font-style:italic;
-  fort-weight:bold;
+  font-weight:bold;
   color:hotpink;
   text-align:centre;
   text-decoration:underline
@@ -223,4 +223,3 @@ font-family:verdana;
     </form>
 </body>
 </html>
-`
