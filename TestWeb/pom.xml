@@ -26,6 +26,11 @@
             <artifactId>tomcat-jsp-api</artifactId>
             <version>11.0.0-M13</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat7-maven-plugin</artifactId>
+            <version>2.2</version>
+        </dependency>
 
     </dependencies>
 
@@ -34,6 +39,16 @@
         <finalName>testweb</finalName>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        <url>http://localhost:8080/manager/text</url>
+                        <server>maven-tomcat-war-deployment</server>
+                        <path>/testweb</path>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.1.0</version>
